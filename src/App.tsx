@@ -2462,21 +2462,27 @@ function LiveAgentDevicesPanel({
 }) {
   return (
     <Panel>
-      <PanelHeading
-        title="Live Windows agent devices"
-        description="Actual backend records only · heartbeat time is the API receipt time."
-        action={
-          <div className="button-row">
-            <Button variant="secondary" icon="refresh" onClick={onRefresh}>
-              Refresh
-            </Button>
-            <Button icon="lock" onClick={onEnroll}>
-              Enroll Device
-            </Button>
-          </div>
-        }
-      />
-      {loading ? (
+  <PanelHeading
+  title="Live Windows agent devices"
+  description="Actual backend records only · heartbeat time is the API receipt time."
+  action={
+  <div className="button-row">
+  <Button variant="secondary" icon="refresh" onClick={onRefresh}>
+  Refresh
+  </Button>
+  <Button icon="lock" onClick={onEnroll}>
+  Connect another computer
+  </Button>
+  </div>
+  }
+  />
+  <div className="subtle-banner">
+  <Icon name="plug" size={16} />
+  <span>
+  Monitor another Windows computer remotely by installing the PatchGuard agent there. Use the enrollment flow to create a one-time token for each computer; this dashboard does not execute commands or restart devices.
+  </span>
+  </div>
+  {loading ? (
         <p className="empty-inline">Loading authenticated agent records…</p>
       ) : authRequired ? (
         <p className="empty-inline" role="status">
