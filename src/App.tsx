@@ -2462,21 +2462,27 @@ function LiveAgentDevicesPanel({
 }) {
   return (
     <Panel>
-      <PanelHeading
-        title="Live Windows agent devices"
-        description="Actual backend records only · heartbeat time is the API receipt time."
-        action={
-          <div className="button-row">
-            <Button variant="secondary" icon="refresh" onClick={onRefresh}>
-              Refresh
-            </Button>
-            <Button icon="lock" onClick={onEnroll}>
-              Enroll Device
-            </Button>
-          </div>
-        }
-      />
-      {loading ? (
+  <PanelHeading
+  title="Live Windows agent devices"
+  description="Actual backend records only · heartbeat time is the API receipt time."
+  action={
+  <div className="button-row">
+  <Button variant="secondary" icon="refresh" onClick={onRefresh}>
+  Refresh
+  </Button>
+  <Button icon="lock" onClick={onEnroll}>
+  Connect another computer
+  </Button>
+  </div>
+  }
+  />
+  <div className="subtle-banner">
+  <Icon name="plug" size={16} />
+  <span>
+  Monitor another Windows computer remotely by installing the PatchGuard agent there. Use the enrollment flow to create a one-time token for each computer; this dashboard does not execute commands or restart devices.
+  </span>
+  </div>
+  {loading ? (
         <p className="empty-inline">Loading authenticated agent records…</p>
       ) : authRequired ? (
         <p className="empty-inline" role="status">
@@ -5234,6 +5240,49 @@ function EnrollmentPage({
             </>
           )}
         </div>
+      </Panel>
+      <Panel>
+        <PanelHeading
+          title="Windows agent package"
+          description="Download the reviewed PowerShell agent files for an authorized Windows 10/11 test laptop."
+        />
+        <div className="agent-download-card">
+          <div className="agent-download-copy">
+            <div className="agent-download-icon">
+              <Icon name="download" size={20} />
+            </div>
+            <div>
+              <strong>RCC PatchGuard Windows Agent 0.2</strong>
+              <p>
+                This is a source package, not a signed EXE or background service.
+                Review the script before running it and keep the files together in
+                one folder.
+              </p>
+              <div className="agent-download-meta">
+                <span>Windows PowerShell 5.1</span>
+                <span>Windows 10/11</span>
+                <span>No external packages</span>
+              </div>
+            </div>
+          </div>
+          <div className="agent-download-actions">
+            <a className="button button-primary" href="/agent/Start-Agent.cmd" download>
+              <Icon name="download" size={16} />
+              <span>Download launcher</span>
+            </a>
+            <a className="button button-secondary" href="/agent/RCC-Agent.ps1" download>
+              <span>Agent script</span>
+            </a>
+            <a className="button button-ghost" href="/agent/README.md" target="_blank" rel="noreferrer">
+              <span>Read setup guide</span>
+            </a>
+          </div>
+        </div>
+        <p className="field-help">
+          Download all three files before launching: <code>Start-Agent.cmd</code>,
+          <code>RCC-Agent.ps1</code>, and the setup guide. The launcher does not
+          bypass execution policy or certificate validation.
+        </p>
       </Panel>
       <Panel>
         <PanelHeading
