@@ -1499,9 +1499,7 @@ function App() {
     <div className="app-shell">
       <aside className={`sidebar ${menuOpen ? "sidebar-open" : ""}`}>
         <div className="brand">
-          <div className="brand-mark">
-            <span>R</span>
-          </div>
+          <img className="patchguard-logo" src="/favicon.svg" alt="RCC PatchGuard shield logo" width="38" height="38" />
           <div>
             <strong>RCC PatchGuard</strong>
             <small>AC Mobility</small>

@@ -298,3 +298,5 @@ fieldset.settings-fields { min-width: 0; margin: 0; border: 0; }
   .scan-metrics > div { border-right: 0; border-bottom: 1px solid #e9edf1; }
   .table-pagination { align-items: flex-start; flex-direction: column; }
 }
+
+.patchguard-logo { display: block; flex-shrink: 0; width: 38px; height: 38px; }
