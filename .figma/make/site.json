@@ -1,6 +1,9 @@
 {
   "title": "RCC PatchGuard",
   "description": "Manage and monitor Windows and Microsoft patch deployment across devices with real-time inventory, approvals, testing, and SLA tracking for IT teams.",
+  "icons": {
+    "icon": "/patchguard-icon-v2.svg"
+  },
   "robots": {
     "index": false
   },
